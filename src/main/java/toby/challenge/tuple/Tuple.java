@@ -1,13 +1,20 @@
 package toby.challenge.tuple;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Tuple<T> implements Cloneable {
-    private List<T> contents;
+    private T[] contents;
 
     public Tuple (List<T> contents) {
         if (contents.size() < 2){
+            throw new IllegalArgumentException();
+        }
+        this.contents = (T[]) contents.toArray();
+    }
+
+    public Tuple(T[] contents) {
+        if (contents.length < 2){
             throw new IllegalArgumentException();
         }
         this.contents = contents;
@@ -21,21 +28,25 @@ public class Tuple<T> implements Cloneable {
         } catch (CloneNotSupportedException e) {
             System.out.println("Cloning of Tuple failed.");
         }
-        List<T> clonedList = new ArrayList<>(this.contents);
-        deepClone.setContents(clonedList);
+        T[] clonedArray = Arrays.copyOf(this.contents, this.contents.length);
+        deepClone.setContents(clonedArray);
         return deepClone;
     }
 
-    public List<T> getContents () {
-        return this.contents;
+    public T[] getContents () {
+        return this.contents.clone();
     }
 
-    private void setContents(List<T> contents) {
+    private void setContents(T[] contents) {
         this.contents = contents;
     }
 
     public int size(){
-        return this.contents.size();
+        return this.contents.length;
+    }
+
+    public T get(int tupleIndex){
+        return this.contents[tupleIndex];
     }
 
     @Override
@@ -52,7 +63,7 @@ public class Tuple<T> implements Cloneable {
             return false;
         }
         Tuple<T> otherTuple = (Tuple<T>) obj;
-        return this.contents.equals(otherTuple.getContents());
+        return Arrays.equals(this.contents, otherTuple.getContents());
     }
 
     @Override
