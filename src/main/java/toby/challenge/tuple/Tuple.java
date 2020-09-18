@@ -1,9 +1,10 @@
 package toby.challenge.tuple;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
-public class Tuple<T> implements Cloneable {
+public class Tuple<T> implements Cloneable, Iterable<T> {
     private T[] contents;
 
     public Tuple (List<T> contents) {
@@ -70,5 +71,12 @@ public class Tuple<T> implements Cloneable {
     public String toString () {
         return contents.toString();
     }
+
+
+    @Override
+    public Iterator<T> iterator() {
+        return new TupleIterator<>(this);
+    }
+
 }
 

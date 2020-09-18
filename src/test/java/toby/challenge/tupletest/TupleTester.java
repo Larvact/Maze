@@ -53,5 +53,14 @@ public class TupleTester {
         Assert.assertEquals(testInteger, tuple.get(testIndex));
     }
 
+    @Test
+    public void tupleIteratorTest(){
+        int expectedIntegerResult = 1;
+        for(int actualIntegerResult : tuple){
+            Assert.assertEquals(expectedIntegerResult, actualIntegerResult);
+            expectedIntegerResult++;
+        }
+    }
+
 
 }
