@@ -5,13 +5,13 @@ import java.util.Map;
 
 public class CollectionMethods {
 
-    public static Map<Character, Integer> dictionaryMerge(Map<Character, Integer> firstMap, Map<Character, Integer> secondMap){
-        Map<Character, Integer> mergedMap = new HashMap<>(firstMap);
-        for (Map.Entry<Character, Integer> keyValuePair : secondMap.entrySet()){
-            Character currentKey = keyValuePair.getKey();
+    public static <T> Map<T, Integer> dictionaryMerge(Map<T, Integer> firstMap, Map<T, Integer> secondMap){
+        Map<T, Integer> mergedMap = new HashMap<>(firstMap);
+        for (Map.Entry<T, Integer> keyValuePair : secondMap.entrySet()){
+            T currentKey = keyValuePair.getKey();
             Integer currentValue = keyValuePair.getValue();
             if(mergedMap.containsKey(currentKey)){
-                mergedMap.put(currentKey, firstMap.get(currentKey) + currentValue);
+                mergedMap.put(currentKey, Math.addExact(firstMap.get(currentKey), currentValue));
             }
             else {
                 mergedMap.put(currentKey, currentValue);

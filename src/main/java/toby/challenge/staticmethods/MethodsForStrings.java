@@ -11,8 +11,10 @@ public class MethodsForStrings {
         for (char character : characterArrayFromString) {
             Character characterWrapped = character;
             if (characterCountMap.containsKey(characterWrapped)) {
-                characterCountMap.put(characterWrapped, characterCountMap.get(characterWrapped) + 1);
-            } else {
+                int letterCount = characterCountMap.computeIfPresent(characterWrapped, (k, v)-> v + 1);
+                characterCountMap.put(character, letterCount);
+            }
+            else {
                 characterCountMap.put(characterWrapped, 1);
             }
         }
