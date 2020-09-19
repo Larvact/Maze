@@ -3,12 +3,12 @@ package toby.challenge.mazegenerationtest;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import toby.challenge.coordinate.TwoDimensionCoordinates;
 import toby.challenge.mazeelement.MazeCharElementConverter;
 import toby.challenge.mazeelement.MazeElement;
 import toby.challenge.mazegeneration.MazeGeneratorEnumDev;
 import toby.challenge.staticmethods.ArrayConverter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MazeGeneratorEnumDevTester {
@@ -44,17 +44,11 @@ public class MazeGeneratorEnumDevTester {
                 MazeElement mazeElement = mazeCharElementConverter.getMazeElementDict().get(characterMazeElement);
                 //Gets Coordinates of Element
                 int columnCoordinate = charElementindex + 1;
-                List<Integer> elementCoordinates = getCoordinatesAsAList(rowCoordinate, columnCoordinate);
+                TwoDimensionCoordinates elementCoordinates = mazeGenerator.getCoordinateKey(rowCoordinate, columnCoordinate);
                 //Ensures that the Expected Element Equals the Retrieved Element From the mazeGenerator Coordinate Element Mapping
                 Assert.assertEquals(mazeElement, mazeGenerator.getMazeElementCoordinateMapping().get(elementCoordinates));
             }
             rowCoordinate++;
         }
-    }
-    private List<Integer> getCoordinatesAsAList(int xCoordinate, int yCoordinate){
-        List<Integer> coordinatesList = new ArrayList<>();
-        coordinatesList.add(xCoordinate);
-        coordinatesList.add(yCoordinate);
-        return coordinatesList;
     }
 }
