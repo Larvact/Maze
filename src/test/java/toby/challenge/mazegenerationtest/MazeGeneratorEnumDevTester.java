@@ -6,7 +6,7 @@ import org.junit.Test;
 import toby.challenge.coordinate.TwoDimensionCoordinates;
 import toby.challenge.mazeelement.MazeCharElementConverter;
 import toby.challenge.mazeelement.MazeElement;
-import toby.challenge.mazegeneration.MazeGeneratorEnumDev;
+import toby.challenge.mazegeneration.MazeGenerator;
 import toby.challenge.staticmethods.ArrayConverter;
 
 import java.util.List;
@@ -14,14 +14,14 @@ import java.util.List;
 public class MazeGeneratorEnumDevTester {
 
     private static String mazeInputString;
-    private static MazeGeneratorEnumDev mazeGenerator;
+    private static MazeGenerator mazeGenerator;
     private static MazeCharElementConverter mazeCharElementConverter;
 
 
     @BeforeClass
     public static void setupMazeGeneratortest(){
         mazeInputString = "WWWPP;EPPPW;PWWWW;PP*WW;PWPWP";
-        mazeGenerator = new MazeGeneratorEnumDev(mazeInputString);
+        mazeGenerator = new MazeGenerator(mazeInputString);
         mazeCharElementConverter = MazeCharElementConverter.getMazeCharacterConverter();
 
     }

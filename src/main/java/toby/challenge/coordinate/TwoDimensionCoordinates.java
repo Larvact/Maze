@@ -4,9 +4,6 @@ public class TwoDimensionCoordinates {
     private int xCoordinate;
     private int yCoordinate;
 
-    public TwoDimensionCoordinates() {
-    }
-
     public TwoDimensionCoordinates(int xCoordinate, int yCoordinate) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;

@@ -1,15 +1,13 @@
 package toby.challenge.mazegeneration;
 
-import toby.challenge.staticmethods.CollectionMethods;
-import toby.challenge.staticmethods.MethodsForStrings;
-
+import toby.challenge.mazeelement.MazeElement;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MazeElementCounter {
 
     private MazeGenerator mazeGenerator;
-    private Map<Character, Integer> mazeElementCount;
+    private Map<MazeElement, Integer> mazeElementCount;
 
     public MazeElementCounter(MazeGenerator mazeGenerator) {
         setMazeElementCount(mazeGenerator);
@@ -17,13 +15,18 @@ public class MazeElementCounter {
 
     private void setmazeElementCount() {
         this.mazeElementCount = new HashMap<>();
-        for (String mazeComponent : this.mazeGenerator.getMazeComponents()) {
-            Map<Character, Integer> mazeComponentElementCounter = MethodsForStrings.letterCounter(mazeComponent);
-            this.mazeElementCount = CollectionMethods.dictionaryMerge(this.mazeElementCount, mazeComponentElementCounter);
+        for (MazeElement mazeComponent : this.mazeGenerator.getMazeElementCoordinateMapping().values()) {
+            if (mazeElementCount.containsKey(mazeComponent)) {
+                int mazeElementCount = this.mazeElementCount.computeIfPresent(mazeComponent, (k, v)-> v + 1);
+                this.mazeElementCount.put(mazeComponent, mazeElementCount);
+            }
+            else {
+                this.mazeElementCount.put(mazeComponent, 1);
+            }
         }
     }
 
-    public Map<Character, Integer> getMazeElementCount() {
+    public Map<MazeElement, Integer> getMazeElementCount() {
         return this.mazeElementCount;
     }
 

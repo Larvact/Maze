@@ -1,21 +1,22 @@
 package toby.challenge.mazegeneration;
 
-import java.util.List;
+import toby.challenge.coordinate.TwoDimensionCoordinates;
+import toby.challenge.mazeelement.MazeElement;
+
 import java.util.Map;
 
 public class Maze {
 
-    private List<String> mazeComponents;
+    private Map<TwoDimensionCoordinates, MazeElement> mazeComponents;
     private MazeElementCounter mazeElementCount;
 
     public Maze(MazeGenerator mazeGenerator, MazeElementCounter mazeElementCounter) {
-        this.mazeComponents = mazeGenerator.getMazeComponents();
-        this.mazeElementCount = mazeElementCounter;
+        setMaze(mazeGenerator, mazeElementCounter);
 
     }
 
     private void setMazeComponents(MazeGenerator mazeGenerator) {
-        this.mazeComponents = mazeGenerator.getMazeComponents();
+        this.mazeComponents = mazeGenerator.getMazeElementCoordinateMapping();
     }
 
     private void setMazeElementCount(MazeElementCounter mazeElementCount) {
@@ -27,11 +28,11 @@ public class Maze {
         setMazeElementCount(mazeElementCount);
     }
 
-    public List<String> getMazeComponents() {
+    public Map<TwoDimensionCoordinates, MazeElement> getMazeComponents() {
         return mazeComponents;
     }
 
-    public Map<Character, Integer> getMazeElementCountDict() {
+    public Map<MazeElement, Integer> getMazeElementCountDict() {
         return mazeElementCount.getMazeElementCount();
     }
 }
