@@ -11,7 +11,7 @@ import toby.challenge.staticmethods.ArrayConverter;
 
 import java.util.List;
 
-public class MazeGeneratorEnumDevTester {
+public class MazeGeneratorTester {
 
     private static String mazeInputString;
     private static MazeGenerator mazeGenerator;

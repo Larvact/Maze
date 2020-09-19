@@ -7,25 +7,28 @@ import java.util.Map;
 
 public class Maze {
 
-    private Map<TwoDimensionCoordinates, MazeElement> mazeComponents;
+    private String mazeInputString;
+    private Map<TwoDimensionCoordinates, MazeElement> mazeComponents; //LOOK TO REMOVE ONE OF THESE MEMBER VARIABLES
+    private MazeGenerator mazeGenerator; //LOOK TO REMOVE ONE OF THESE MEMBER VARIABLES
     private MazeElementCounter mazeElementCount;
 
-    public Maze(MazeGenerator mazeGenerator, MazeElementCounter mazeElementCounter) {
-        setMaze(mazeGenerator, mazeElementCounter);
-
+    public Maze(String mazeInputString) {
+        setMaze(mazeInputString);
     }
 
-    private void setMazeComponents(MazeGenerator mazeGenerator) {
-        this.mazeComponents = mazeGenerator.getMazeElementCoordinateMapping();
+    private void setMazeComponents() {
+        this.mazeGenerator = new MazeGenerator(this.mazeInputString);
+        this.mazeComponents = this.mazeGenerator.getMazeElementCoordinateMapping();
     }
 
     private void setMazeElementCount(MazeElementCounter mazeElementCount) {
         this.mazeElementCount = mazeElementCount;
     }
 
-    public void setMaze(MazeGenerator mazeGenerator, MazeElementCounter mazeElementCount){
-        setMazeComponents(mazeGenerator);
-        setMazeElementCount(mazeElementCount);
+    public void setMaze(String mazeInputString){
+        this.mazeInputString = mazeInputString;
+        setMazeComponents();
+        setMazeElementCount(new MazeElementCounter(this.mazeGenerator));
     }
 
     public Map<TwoDimensionCoordinates, MazeElement> getMazeComponents() {
