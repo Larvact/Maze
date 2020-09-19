@@ -16,15 +16,6 @@ public class Maze {
         setMaze(mazeInputString);
     }
 
-    private void setMazeComponents() {
-        this.mazeGenerator = new MazeGenerator(this.mazeInputString);
-        this.mazeComponents = this.mazeGenerator.getMazeElementCoordinateMapping();
-    }
-
-    private void setMazeElementCount(MazeElementCounter mazeElementCount) {
-        this.mazeElementCount = mazeElementCount;
-    }
-
     public void setMaze(String mazeInputString){
         this.mazeInputString = mazeInputString;
         setMazeComponents();
@@ -38,4 +29,14 @@ public class Maze {
     public Map<MazeElement, Integer> getMazeElementCountDict() {
         return mazeElementCount.getMazeElementCount();
     }
+
+    private void setMazeComponents() {
+        this.mazeGenerator = new MazeGenerator(this.mazeInputString);
+        this.mazeComponents = this.mazeGenerator.getMazeElementCoordinateMapping();
+    }
+
+    private void setMazeElementCount(MazeElementCounter mazeElementCount) {
+        this.mazeElementCount = mazeElementCount;
+    }
+
 }

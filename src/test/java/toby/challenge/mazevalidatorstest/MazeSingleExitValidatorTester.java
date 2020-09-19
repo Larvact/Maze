@@ -2,8 +2,6 @@ package toby.challenge.mazevalidatorstest;
 
 import org.junit.Test;
 import toby.challenge.mazegeneration.Maze;
-import toby.challenge.mazegeneration.MazeElementCounter;
-import toby.challenge.mazegeneration.MazeGenerator;
 import toby.challenge.mazevalidators.MazeSingleExitValidator;
 import toby.challenge.mazevalidators.MazeValidator;
 
