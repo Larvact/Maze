@@ -1,4 +1,4 @@
-package toby.challenge.coordinate;
+package toby.challenge.mazecreation.coordinate;
 
 public class TwoDimensionCoordinates {
     private int xCoordinate;

@@ -1,9 +1,9 @@
-package toby.challenge.mazevalidatorstest;
+package toby.challenge.mazecreationtest.mazevalidatorstest;
 
 import org.junit.Test;
-import toby.challenge.mazegeneration.Maze;
-import toby.challenge.mazevalidators.MazeSingleExplorerValidator;
-import toby.challenge.mazevalidators.MazeValidator;
+import toby.challenge.mazecreation.mazegeneration.Maze;
+import toby.challenge.mazecreation.mazevalidators.MazeSingleExplorerValidator;
+import toby.challenge.mazecreation.mazevalidators.MazeValidator;
 
 public class MazeSingleExplorerValidatorTester {
     private final String validMazeInput = "WWWPP;EPPPW;PWWWW;PP*WW;PWPWP";

@@ -1,8 +1,8 @@
-package toby.challenge.mazegeneration;
+package toby.challenge.mazecreation.mazegeneration;
 
-import toby.challenge.coordinate.TwoDimensionCoordinates;
-import toby.challenge.mazeelement.MazeElement;
-import toby.challenge.mazeelement.MazeCharElementConverter;
+import toby.challenge.mazecreation.coordinate.TwoDimensionCoordinates;
+import toby.challenge.mazecreation.mazeelement.MazeElement;
+import toby.challenge.mazecreation.mazeelement.MazeCharElementConverter;
 import toby.challenge.staticmethods.ArrayConverter;
 import java.util.HashMap;
 import java.util.List;
@@ -53,6 +53,8 @@ public class MazeGenerator {
         this.setMazeMapping();
     }
 
+    //LOOK TO DELETE LATER. IT IS ONLY HERE AT THE MOMENT FOR UNIT TESTING PURPOSE.
+    //THIS METHOD IS AVAILABLE INSIDE THE MAZE CLASS ASWELL FOR ANALYSIS PURPOSE.
     public TwoDimensionCoordinates getCoordinateKey(int xCoordinate, int yCoordinate){
         for(TwoDimensionCoordinates twoDCoordinate : mazeElementCoordinateMapping.keySet()){
             if(twoDCoordinate.getxCoordinate() == xCoordinate && twoDCoordinate.getyCoordinate() == yCoordinate){

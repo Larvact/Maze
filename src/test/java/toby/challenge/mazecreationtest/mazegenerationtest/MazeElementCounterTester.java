@@ -1,11 +1,11 @@
-package toby.challenge.mazegenerationtest;
+package toby.challenge.mazecreationtest.mazegenerationtest;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import toby.challenge.mazeelement.MazeCharElementConverter;
-import toby.challenge.mazegeneration.MazeElementCounter;
-import toby.challenge.mazegeneration.MazeGenerator;
+import toby.challenge.mazecreation.mazeelement.MazeCharElementConverter;
+import toby.challenge.mazecreation.mazegeneration.MazeElementCounter;
+import toby.challenge.mazecreation.mazegeneration.MazeGenerator;
 
 public class MazeElementCounterTester {
 

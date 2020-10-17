@@ -1,4 +1,4 @@
-package toby.challenge.mazeelement;
+package toby.challenge.mazecreation.mazeelement;
 
 import java.util.HashMap;
 import java.util.Map;

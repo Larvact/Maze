@@ -1,14 +1,11 @@
-package toby.challenge.mazegenerationtest;
+package toby.challenge.mazecreationtest.mazegenerationtest;
 
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import toby.challenge.coordinate.TwoDimensionCoordinates;
-import toby.challenge.mazeelement.MazeCharElementConverter;
-import toby.challenge.mazeelement.MazeElement;
-import toby.challenge.mazegeneration.MazeGenerator;
+import org.junit.*;
+import toby.challenge.mazecreation.coordinate.TwoDimensionCoordinates;
+import toby.challenge.mazecreation.mazeelement.MazeCharElementConverter;
+import toby.challenge.mazecreation.mazeelement.MazeElement;
+import toby.challenge.mazecreation.mazegeneration.MazeGenerator;
 import toby.challenge.staticmethods.ArrayConverter;
-
 import java.util.List;
 
 public class MazeGeneratorTester {
@@ -16,14 +13,14 @@ public class MazeGeneratorTester {
     private static String mazeInputString;
     private static MazeGenerator mazeGenerator;
     private static MazeCharElementConverter mazeCharElementConverter;
-
+    private final int invalidXCoordinate = 0;
+    private final int invalidYCoordinate = 0;
 
     @BeforeClass
     public static void setupMazeGeneratortest(){
         mazeInputString = "WWWPP;EPPPW;PWWWW;PP*WW;PWPWP";
         mazeGenerator = new MazeGenerator(mazeInputString);
         mazeCharElementConverter = MazeCharElementConverter.getMazeCharacterConverter();
-
     }
 
     @Test
@@ -50,5 +47,10 @@ public class MazeGeneratorTester {
             }
             rowCoordinate++;
         }
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void ensureAttemptingToRetrieveInvalidCoordinatesFromMappingRisesTheorrectError(){
+        TwoDimensionCoordinates invalidCoordinate = mazeGenerator.getCoordinateKey(invalidXCoordinate,invalidYCoordinate);
     }
 }

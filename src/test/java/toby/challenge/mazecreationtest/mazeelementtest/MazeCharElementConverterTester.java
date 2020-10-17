@@ -1,10 +1,10 @@
-package toby.challenge.mazeelementtest;
+package toby.challenge.mazecreationtest.mazeelementtest;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import toby.challenge.mazeelement.MazeCharElementConverter;
-import toby.challenge.mazeelement.MazeElement;
+import toby.challenge.mazecreation.mazeelement.MazeCharElementConverter;
+import toby.challenge.mazecreation.mazeelement.MazeElement;
 
 public class MazeCharElementConverterTester {
 

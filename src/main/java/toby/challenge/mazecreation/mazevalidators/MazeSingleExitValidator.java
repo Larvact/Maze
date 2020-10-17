@@ -1,7 +1,7 @@
-package toby.challenge.mazevalidators;
+package toby.challenge.mazecreation.mazevalidators;
 
-import toby.challenge.mazeelement.MazeElement;
-import toby.challenge.mazegeneration.Maze;
+import toby.challenge.mazecreation.mazeelement.MazeElement;
+import toby.challenge.mazecreation.mazegeneration.Maze;
 
 public class MazeSingleExitValidator extends MazeValidator{
 
@@ -12,10 +12,10 @@ public class MazeSingleExitValidator extends MazeValidator{
     @Override
     public void validate() {
         MazeElement exit = MazeElement.EXIT;
-        if(!maze.getMazeElementCountDict().containsKey(exit)){
+        if(!maze.getMazeElementCounterDict().containsKey(exit)){
             throw new IllegalArgumentException("There is no exit inside the maze, redefine the maze with a single exit");
         }
-        else if(maze.getMazeElementCountDict().get(exit) > 1){
+        else if(maze.getMazeElementCounterDict().get(exit) > 1){
             throw new IllegalArgumentException("There are more than one exits inside the maze, redefine the maze with a single exit");
         }
     }

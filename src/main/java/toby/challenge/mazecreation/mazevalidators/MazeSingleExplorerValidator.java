@@ -1,7 +1,7 @@
-package toby.challenge.mazevalidators;
+package toby.challenge.mazecreation.mazevalidators;
 
-import toby.challenge.mazeelement.MazeElement;
-import toby.challenge.mazegeneration.Maze;
+import toby.challenge.mazecreation.mazeelement.MazeElement;
+import toby.challenge.mazecreation.mazegeneration.Maze;
 
 public class MazeSingleExplorerValidator extends MazeValidator{
 
@@ -12,10 +12,10 @@ public class MazeSingleExplorerValidator extends MazeValidator{
     @Override
     public void validate() {
         MazeElement explorer = MazeElement.EXPLORER;
-        if(!maze.getMazeElementCountDict().containsKey(explorer)){
+        if(!maze.getMazeElementCounterDict().containsKey(explorer)){
             throw new IllegalArgumentException("There is no explorer inside the maze, redefine the maze with a single explorer");
         }
-        else if(maze.getMazeElementCountDict().get(explorer) > 1){
+        else if(maze.getMazeElementCounterDict().get(explorer) > 1){
             throw new IllegalArgumentException("There are more than one explorers inside the maze, redefine the maze with a single explorer");
         }
 

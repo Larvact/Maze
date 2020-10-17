@@ -1,9 +1,9 @@
-package toby.challenge.mazevalidatorstest;
+package toby.challenge.mazecreationtest.mazevalidatorstest;
 
 import org.junit.Test;
-import toby.challenge.mazegeneration.Maze;
-import toby.challenge.mazevalidators.MazeSingleExitValidator;
-import toby.challenge.mazevalidators.MazeValidator;
+import toby.challenge.mazecreation.mazegeneration.Maze;
+import toby.challenge.mazecreation.mazevalidators.MazeSingleExitValidator;
+import toby.challenge.mazecreation.mazevalidators.MazeValidator;
 
 public class MazeSingleExitValidatorTester {
 

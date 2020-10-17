@@ -1,6 +1,6 @@
-package toby.challenge.mazevalidators;
+package toby.challenge.mazecreation.mazevalidators;
 
-import toby.challenge.mazegeneration.Maze;
+import toby.challenge.mazecreation.mazegeneration.Maze;
 
 public abstract class MazeValidator {
 
