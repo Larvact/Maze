@@ -21,11 +21,11 @@ public class MazeGenerator {
     private void setMazeMapping() {
         List<String> mazeStringByRows = getMazeByRow();
         mazeElementCoordinateMapping = new HashMap<>();
-        int currentMazeRowNumber = 1;
+        int currentMazeXCoordinate = 1;
         for(String mazeStringRow : mazeStringByRows){
             char [] mazeCharsRow = mazeStringRow.toCharArray();
-            setCoordinateMappingOfCurrentMazeElement(currentMazeRowNumber, mazeCharsRow);
-            currentMazeRowNumber++;
+            setCoordinateMappingOfCurrentMazeElement(currentMazeXCoordinate, mazeCharsRow);
+            currentMazeXCoordinate++;
         }
     }
 
@@ -34,11 +34,11 @@ public class MazeGenerator {
         return ArrayConverter.toListFromArray(mazeCharElementsByRowArray);
     }
 
-    private void setCoordinateMappingOfCurrentMazeElement(int mazeRowNumber, char [] mazeCharsOnRow){
+    private void setCoordinateMappingOfCurrentMazeElement(int mazeXCoordinate, char [] mazeCharsOnRow){
         for(int mazeColumnIndex = 0; mazeColumnIndex < mazeCharsOnRow.length; mazeColumnIndex++){
             Character mazeCurrentCharacter = mazeCharsOnRow[mazeColumnIndex];
-            int currentMazeColNumber = mazeColumnIndex + 1;
-            TwoDimensionCoordinates currentMazeElementCoordinates = new TwoDimensionCoordinates(mazeRowNumber, currentMazeColNumber);
+            int currentMazeYCoordinate = mazeColumnIndex + 1;
+            TwoDimensionCoordinates currentMazeElementCoordinates = new TwoDimensionCoordinates(mazeXCoordinate, currentMazeYCoordinate);
             MazeElement currentMazeElement = mazeCharElementConverter.getMazeElementDict().get(mazeCurrentCharacter);
             mazeElementCoordinateMapping.put(currentMazeElementCoordinates, currentMazeElement);
         }

@@ -31,21 +31,21 @@ public class MazeGeneratorTester {
 
     @Test
     public void ensureAllCoordinateMappingsAreCorrect(){
-        int rowCoordinate = 1;
-        List<String> mazeStringByRows = ArrayConverter.toListFromArray(mazeInputString.split(";"));
-        for(String mazeStringRow : mazeStringByRows){
-            char [] charElementsOnRow = mazeStringRow.toCharArray();
-            for(int charElementindex = 0; charElementindex < charElementsOnRow.length; charElementindex++){
-                Character characterMazeElement = charElementsOnRow[charElementindex];
+        int xCoordinate = 1;
+        List<String> mazeStringByColumns = ArrayConverter.toListFromArray(mazeInputString.split(";"));
+        for(String mazeStringColumn : mazeStringByColumns){
+            char [] charElementsOnColumn = mazeStringColumn.toCharArray();
+            for(int charElementindex = 0; charElementindex < charElementsOnColumn.length; charElementindex++){
+                Character characterMazeElement = charElementsOnColumn[charElementindex];
                 //Gets Expected Element From Character Type
                 MazeElement mazeElement = mazeCharElementConverter.getMazeElementDict().get(characterMazeElement);
                 //Gets Coordinates of Element
-                int columnCoordinate = charElementindex + 1;
-                TwoDimensionCoordinates elementCoordinates = mazeGenerator.getCoordinateKey(rowCoordinate, columnCoordinate);
+                int yCoordinate = charElementindex + 1;
+                TwoDimensionCoordinates elementCoordinates = mazeGenerator.getCoordinateKey(xCoordinate, yCoordinate);
                 //Ensures that the Expected Element Equals the Retrieved Element From the mazeGenerator Coordinate Element Mapping
                 Assert.assertEquals(mazeElement, mazeGenerator.getMazeElementCoordinateMapping().get(elementCoordinates));
             }
-            rowCoordinate++;
+            xCoordinate++;
         }
     }
 
